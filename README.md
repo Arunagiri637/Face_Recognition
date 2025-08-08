@@ -144,7 +144,7 @@ Closing the video window also stops the script
 
 Expected console outputs include connection success/failure messages, capture notifications and any DB errors.
 
-### --Behavior & outputs--
+### Behavior & outputs
 
 On first run, captured_faces/ is created automatically.
 
@@ -154,13 +154,13 @@ A line is appended to capture_log.txt with timestamp, file path and status.
 
 A DB row is inserted into face_captures with image_name, capture_time, and status (Known or Unknown).
 
-### --Naming convention for known faces--
+### Naming convention for known faces
 
 Filenames in known_faces/ should be the person's name (no spaces ideally): Alice.jpg, bob.png.
 
 The script extracts the base filename (without extension) as the person name used for saving captured images and DB records.
 
-### --Troubleshooting & common errors--
+### Troubleshooting & common errors
 
 Cannot open webcam: try different index cv2.VideoCapture(1) or check camera permissions. Ensure no other app is using the camera.
 
@@ -176,7 +176,7 @@ Too many false positives / false negatives: tune cascade scaleFactor, minNeighbo
 
 If the script crashes, read stack trace printed to console — traceback.print_exc() is already in place for DB inserts and will help locate issues.
 
-### --Performance tuning tips--
+### Performance tuning tips
 
 Convert frames to smaller size before detection for higher FPS (but be careful with recognition accuracy).
 
@@ -186,7 +186,7 @@ Use face_recognition's HOG or CNN detector on full frames (slower but often more
 
 Use batch encoding: maintaining encodings in memory (already implemented) is much faster than re-encoding known faces repeatedly.
 
-### --Security & privacy--
+### Security & privacy
 
 Captured face images are personal data. Make sure you have consent to capture and store faces.
 
@@ -194,7 +194,7 @@ If deploying in a real environment, consider encryption at rest, secure DB crede
 
 Add a configuration switch to disable DB inserts or enable pseudonymization for demo/testing.
 
-### --Optional extras you can add--
+### Optional extras you can add
 
 requirements.txt and Pipfile/environment.yml
 
